@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pruthvi Raj Darapu - Resume PDF Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .generate-btn {
+            background: #1a3a5c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .generate-btn:hover {
+            background: #2c4f70;
+        }
+        .preview {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            background: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume PDF Generator</h1>
+        <p>Click the button below to generate and download your resume as a PDF:</p>
+        
+        <button class="generate-btn" onclick="generatePDF()">📄 Generate PDF Resume</button>
+        
+        <div class="preview">
+            <h3>PDF Content Preview:</h3>
+            <p><strong>Pruthvi Raj Darapu</strong><br>
+            Associate Director – Cloud, DevOps, Data & IT Operations<br>
+            Email: pruthviraj.darapu@olea.net<br>
+            LinkedIn: linkedin.com/in/pruthviraj0808<br>
+            Ready to relocate to EU (Latvia, Estonia, Germany, Netherlands) or Canada</p>
+        </div>
+    </div>
+
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Header
+            doc.setFontSize(20);
+            doc.setFont(undefined, 'bold');
+            doc.text('Pruthvi Raj Darapu', 20, 30);
+            
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'normal');
+            doc.text('Associate Director – Cloud, DevOps, Data & IT Operations', 20, 40);
+            doc.text('AWS Certified Solutions Architect | 8+ Years | Multi-Cloud & FinOps', 20, 48);
+            
+            // Contact Info
+            doc.setFontSize(10);
+            doc.text('Email: pruthvirajdarapu@gmail.com | Phone: +91 9492246177', 20, 58);
+            doc.text('LinkedIn: linkedin.com/in/pruthviraj0808 | Location: Hyderabad, India', 20, 65);
+            
+            // Relocation Note
+            doc.setFillColor(237, 242, 247);
+            doc.rect(20, 75, 170, 15, 'F');
+            doc.setFontSize(11);
+            doc.setFont(undefined, 'bold');
+            doc.text('🌍 Actively Seeking International Opportunities', 25, 85);
+            doc.setFont(undefined, 'normal');
+            doc.text('Ready to relocate to EU (Latvia, Estonia, Germany, Netherlands) or Canada', 25, 92);
+            
+            // Professional Summary
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Professional Summary', 20, 110);
+            
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            const summaryText = `Results-driven Cloud & DevOps Leader with 8+ years of progressive experience scaling infrastructure,
+driving €87K+ in annualized cloud savings, and leading cross-functional engineering teams across international,
+distributed environments (Singapore, USA, India). AWS Certified Solutions Architect currently serving as
+Associate Director overseeing Cloud Infrastructure, DevOps, Data Engineering, and IT Operations for a
+Singapore-headquartered company.`;
+            
+            const splitSummary = doc.splitTextToSize(summaryText, 170);
+            doc.text(splitSummary, 20, 120);
+            
+            // Career Highlights
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Career Highlights & Impact', 20, 160);
+            
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            const highlights = [
+                '€87,000+ annualized cloud savings — Architected comprehensive FinOps platform using QuickSight and CUR 2.0',
+                '426,000+ resources managed — Led enterprise-wide tagging initiative across preprod and production environments',
+                '15+ Terraform modules authored — Established IaC standards with drift detection and automated compliance',
+                'Zero-downtime deployment framework — Built Python-based OS patching automation with 99.9% uptime',
+                'Enterprise monitoring at scale — Created health monitoring system tracking 55+ endpoints'
+            ];
+            
+            let yPos = 170;
+            highlights.forEach(highlight => {
+                const lines = doc.splitTextToSize('• ' + highlight, 170);
+                doc.text(lines, 20, yPos);
+                yPos += lines.length * 5 + 3;
+            });
+            
+            // Work Experience
+            doc.addPage();
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Work Experience', 20, 30);
+            
+            // Current Role
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text('Olea Global Pte. Ltd, Singapore (Remote) | 08/2025 – Present', 20, 45);
+            doc.setFontSize(11);
+            doc.setFont(undefined, 'italic');
+            doc.text('Associate Director – Cloud, DevOps, Data & IT Operations', 20, 53);
+            
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            const currentRole = [
+                'Architected comprehensive FinOps platform using QuickSight, CUR 2.0, and Athena, delivering €87K+ annualized cost savings',
+                'Built automated monthly cost reporting system using Lambda, EventBridge, and SES with cross-account IAM',
+                'Led organization-wide resource tagging initiative covering 426K+ AWS resources across environments',
+                'Developed zero-downtime OS patching automation ensuring 99.9% uptime during maintenance windows',
+                'Created comprehensive health monitoring system tracking 55 endpoints with Lambda-based alerting',
+                'Established Infrastructure as Code standards authoring 15+ reusable Terraform modules'
+            ];
+            
+            yPos = 63;
+            currentRole.forEach(item => {
+                const lines = doc.splitTextToSize('• ' + item, 170);
+                doc.text(lines, 20, yPos);
+                yPos += lines.length * 5 + 3;
+            });
+            
+            // Technical Skills
+            yPos += 10;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Technical Skills', 20, yPos);
+            
+            yPos += 10;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            const skills = [
+                'Cloud Platforms: AWS, Azure, GCP',
+                'IaC & Automation: Terraform, CloudFormation, Ansible, AWS Step Functions',
+                'CI/CD Tools: Jenkins, GitHub Actions, AWS CodeBuild, CodeDeploy, CodePipeline',
+                'Containerization: Docker, Kubernetes, AWS EKS, AWS ECS Fargate',
+                'Monitoring: ELK Stack, AWS CloudWatch, Prometheus, Grafana',
+                'FinOps: AWS Cost Explorer, CUR 2.0, Amazon QuickSight, AWS Budgets',
+                'Programming: Python, Bash/Shell, HCL'
+            ];
+            
+            skills.forEach(skill => {
+                const lines = doc.splitTextToSize('• ' + skill, 170);
+                doc.text(lines, 20, yPos);
+                yPos += lines.length * 5 + 3;
+            });
+            
+            // Education & Certifications
+            yPos += 10;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Education & Certifications', 20, yPos);
+            
+            yPos += 10;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text('• Master of Business Administration (MBA) | 2015 – 2017', 20, yPos);
+            yPos += 8;
+            doc.text('• AWS Certified Solutions Architect – Associate | Valid through 2026', 20, yPos);
+            
+            // Footer
+            doc.setFontSize(8);
+            doc.setTextColor(100);
+            doc.text('Generated on: ' + new Date().toLocaleDateString(), 20, 280);
+            doc.text('Available for EU Blue Card and Canada Express Entry opportunities', 120, 280);
+            
+            // Save the PDF
+            doc.save('Pruthvi_Raj_Darapu_Resume.pdf');
+            
+            // Show success message
+            alert('PDF generated successfully! Check your downloads folder.');
+        }
+    </script>
+</body>
+</html>

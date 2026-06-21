@@ -6,6 +6,7 @@
     <meta name="description" content="Associate Director - Cloud, DevOps, Data & IT Operations | AWS Certified Solutions Architect | 8+ Years Experience | Available for EU & Canada opportunities">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         .container {
             max-width: 900px;
@@ -133,6 +134,11 @@
 
     <div class="relocation-note">
         <b>🌍 Actively Seeking International Opportunities</b> — Ready to relocate to the <b>EU</b> (Latvia, Estonia, Germany, Netherlands) or <b>Canada</b>. EU Blue Card and Canada Express Entry eligible. Available within notice period.
+    </div>
+
+    <div style="text-align: center; margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 2px solid #1a3a5c;">
+        <button onclick="generatePDF()" style="background: #1a3a5c; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-right: 10px;">📄 Download PDF Resume</button>
+        <span style="color: #666; font-size: 14px;">Get a professional PDF version for easy sharing</span>
     </div>
 
     <div class="section-title">Professional Summary</div>
@@ -327,5 +333,205 @@
         I hereby consent to the processing of my personal data for the purposes of recruitment, in accordance with Regulation (EU) 2016/679 (GDPR) and the Personal Information Protection and Electronic Documents Act (PIPEDA) of Canada.
     </div>
 </div>
+
+<script>
+function generatePDF() {
+    // Create a temporary element with the resume content for better PDF conversion
+    const resumeContent = `
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.5; color: #333; }
+        .header { text-align: center; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 3px solid #1a3a5c; }
+        .name { font-size: 28px; font-weight: bold; margin-bottom: 8px; color: #1a3a5c; }
+        .title { font-size: 18px; font-weight: 600; margin-bottom: 6px; color: #2c4f70; }
+        .subtitle { font-size: 16px; margin-bottom: 6px; color: #555; }
+        .tech-stack { font-size: 14px; margin-bottom: 15px; color: #666; font-style: italic; }
+        .contact-section { margin-top: 15px; }
+        .contact-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .contact-item { font-size: 12px; color: #555; flex: 1; text-align: center; }
+        .section-title { font-size: 18px; font-weight: bold; margin: 25px 0 12px 0; color: #1a3a5c; border-bottom: 2px solid #1a3a5c; padding-bottom: 5px; }
+        .highlight-box { background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%); border-left: 5px solid #1a3a5c; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .job-title { font-weight: bold; margin: 20px 0 8px 0; font-size: 14px; color: #1a3a5c; }
+        .job-company { font-style: italic; color: #666; font-size: 13px; margin-bottom: 10px; }
+        ul { margin: 12px 0; padding-left: 20px; }
+        li { margin-bottom: 10px; font-size: 12px; line-height: 1.6; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 15px 0; }
+        .skill-item { font-size: 12px; padding: 5px; }
+        .page-break { page-break-before: always; }
+        strong { color: #1a3a5c; }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .header { page-break-inside: avoid; }
+            .job-title { page-break-after: avoid; }
+            .section-title { page-break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name">Pruthvi Raj Darapu</div>
+        <div class="title">Associate Director – Cloud, DevOps, Data & IT Operations</div>
+        <div class="subtitle">AWS Certified Solutions Architect | 8+ Years | Multi-Cloud & FinOps</div>
+        <div class="tech-stack">AWS · Azure · Terraform · Kubernetes · Jenkins · Ansible · Python</div>
+        
+        <div class="contact-section">
+            <div class="contact-row">
+                <span class="contact-item">📧 pruthvirajdarapu@gmail.com</span>
+                <span class="contact-item">📱 +91 9492246177</span>
+            </div>
+            <div class="contact-row">
+                <span class="contact-item">💼 linkedin.com/in/pruthviraj0808</span>
+                <span class="contact-item">📅 DOB: 08 August 1994</span>
+            </div>
+            <div class="contact-row">
+                <span class="contact-item">🌍 Hyderabad, India</span>
+                <span class="contact-item">🚗 Driving Licence: Category B</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>🌍 Actively Seeking International Opportunities</strong> — Ready to relocate to the <strong>EU</strong> (Latvia, Estonia, Germany, Netherlands) or <strong>Canada</strong>. EU Blue Card and Canada Express Entry eligible. Available within notice period.
+    </div>
+    
+    <div class="section-title">Professional Summary</div>
+    <p>Results-driven Cloud & DevOps Leader with <strong>8+ years</strong> of progressive experience scaling infrastructure, driving <strong>€87K+ in annualized cloud savings</strong>, and leading cross-functional engineering teams across <strong>international, distributed environments</strong> (Singapore, USA, India). AWS Certified Solutions Architect currently serving as <strong>Associate Director</strong> overseeing Cloud Infrastructure, DevOps, Data Engineering, and IT Operations for a Singapore-headquartered company. Proven expertise in building enterprise-grade CI/CD pipelines, authoring <strong>15+ reusable Terraform modules</strong>, and implementing FinOps frameworks that deliver measurable ROI.</p>
+    
+    <div class="section-title">Career Highlights & Impact</div>
+    <ul>
+        <li><strong>€87,000+ annualized cloud savings</strong> — Architected comprehensive FinOps platform using QuickSight and CUR 2.0, achieving data-driven cost optimization across 15 AWS accounts with executive-level financial visibility.</li>
+        <li><strong>426,000+ resources managed</strong> — Led enterprise-wide tagging initiative across preprod and production environments with automated compliance frameworks and cost allocation tracking.</li>
+        <li><strong>Zero-downtime deployment framework</strong> — Built Python-based OS patching automation with AWS SSM, ensuring 99.9% uptime during maintenance windows across distributed infrastructure.</li>
+        <li><strong>15+ Terraform modules authored</strong> — Established IaC standards with drift detection and automated compliance scanning across multi-environment Kubernetes deployments.</li>
+        <li><strong>Enterprise monitoring at scale</strong> — Created health monitoring system tracking 55+ endpoints with Lambda-based alerting, reducing incident response time by 60% through automated workflows.</li>
+        <li><strong>Team leadership & mentorship</strong> — Managed and mentored teams of up to 5 engineers while establishing DevOps best practices, automation frameworks, and SRE culture across international environments.</li>
+    </ul>
+    
+    <div class="section-title">Key Projects</div>
+    <ul>
+        <li><strong>Multi-Cloud FinOps Platform</strong> — Architected comprehensive cost intelligence dashboard using QuickSight, CUR 2.0, and Athena with automated cross-account reporting, delivering €87K+ annual savings across 15 AWS accounts.</li>
+        <li><strong>Enterprise Resource Management</strong> — Led organization-wide tagging initiative covering 426K+ AWS resources with automated compliance scanning and cost allocation frameworks across multi-environment infrastructure.</li>
+        <li><strong>Zero-Downtime Infrastructure Automation</strong> — Built Python-based OS patching system with AWS SSM integration, rolling deployment strategies, and comprehensive health monitoring across distributed environments.</li>
+        <li><strong>Infrastructure as Code Framework</strong> — Authored 15+ reusable Terraform modules with drift detection, automated compliance scanning, and standardized provisioning across dev/preprod/prod environments.</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    
+    <div class="section-title">Work Experience</div>
+    
+    <div class="job-title">Olea Global Pte. Ltd, Singapore (Remote – Hyderabad, India) | 08/2025 – Present</div>
+    <div class="job-company">Associate Director – Cloud, DevOps, Data & IT Operations</div>
+    <ul>
+        <li>Architected comprehensive FinOps platform using QuickSight, CUR 2.0, and Athena, delivering <strong>€87K+ annualized cost savings</strong> across 15 AWS accounts through data-driven cost optimization and executive-level financial visibility.</li>
+        <li>Built automated monthly cost reporting system using Lambda, EventBridge, and SES with cross-account IAM, eliminating manual reporting processes for executive stakeholders and enabling real-time cost governance.</li>
+        <li>Led organization-wide resource tagging initiative covering <strong>426K+ AWS resources</strong> across preprod and production environments, implementing automated compliance and cost allocation frameworks.</li>
+        <li>Developed zero-downtime OS patching automation using Python and AWS SSM, ensuring <strong>99.9% uptime</strong> during monthly maintenance windows across distributed infrastructure managing team of 5 engineers.</li>
+        <li>Created comprehensive health monitoring system tracking <strong>55 endpoints</strong> with Lambda-based alerting and DynamoDB workflows, reducing incident response time by 60% through automated acknowledgment processes.</li>
+        <li>Established Infrastructure as Code standards with drift detection and automated compliance scanning across multi-environment Kubernetes deployments, authoring <strong>15+ reusable Terraform modules</strong>.</li>
+    </ul>
+    
+    <div class="job-title">Tango Analytics, Dallas, TX, USA (Remote) | 01/2024 – 08/2025</div>
+    <div class="job-company">Cloud Operations Engineer</div>
+    <ul>
+        <li>Optimized <strong>AWS cloud infrastructure</strong> for Dallas-based analytics company using EC2, S3, Lambda, and CloudFront, achieving <strong>99.99% availability</strong> and reducing downtime by <strong>30%</strong>.</li>
+        <li>Orchestrated <strong>CI/CD automation</strong> with Jenkins, AWS CodeDeploy, and CodePipeline, reducing manual deployment effort by <strong>70%</strong> and enabling daily production releases across microservices architecture.</li>
+        <li>Managed team of <strong>5 engineers</strong> in cloud automation initiatives, improving deployment efficiency by <strong>40%</strong> while establishing coding standards and best practices for containerized applications using AWS ECS Fargate.</li>
+        <li>Enhanced application performance through <strong>ElastiCache (Redis & Memcached)</strong> integration, reducing database query load by <strong>40%</strong> and improving API response times for customer-facing analytics platform.</li>
+        <li>Fortified infrastructure security by implementing <strong>IAM least-privilege policies, AWS Security Hub, and GuardDuty</strong>, achieving SOC 2, GDPR, and ISO 27001 compliance while reducing security vulnerabilities by <strong>40%</strong>.</li>
+    </ul>
+    
+    <div class="job-title">Gemini Intergalactic Pvt Ltd, Gurugram, India | 09/2023 – 01/2024</div>
+    <div class="job-company">Senior Site Reliability Engineer</div>
+    <ul>
+        <li>Streamlined infrastructure provisioning using <strong>Ansible</strong> across AWS & Azure environments for Indian cybersecurity startup, reducing manual configurations by <strong>80%</strong> and ensuring environment consistency.</li>
+        <li>Architected <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) for centralized logging across distributed systems, cutting logging costs by <strong>30%</strong> and improving data retention by <strong>50%</strong>.</li>
+        <li>Integrated <strong>Kubernetes provider with Terraform</strong>, enabling declarative management of K8s resources and enhancing scalability for containerized workloads during cloud migration initiatives.</li>
+        <li>Strengthened disaster recovery capabilities through automated backups, cross-region replication, and failover mechanisms, improving system resilience by <strong>35%</strong>.</li>
+        <li>Pioneered SRE practices including <strong>SLI/SLO definitions</strong>, error budgets, and incident postmortem processes, establishing accountability frameworks and improving service reliability metrics.</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    
+    <div class="job-title">Infinity Infra, Hyderabad, India | 07/2019 – 09/2023</div>
+    <div class="job-company">DevOps Engineer</div>
+    <ul>
+        <li>Engineered comprehensive <strong>CI/CD pipelines</strong> using Jenkins, GitHub Actions, and Docker for Indian infrastructure company, reducing deployment time by <strong>60%</strong> and enabling multiple production releases per day.</li>
+        <li>Crafted <strong>Terraform & CloudFormation</strong> templates to automate AWS infrastructure provisioning across <strong>10+ environments</strong>, reducing manual effort by <strong>80%</strong> and establishing infrastructure consistency standards.</li>
+        <li>Modernized legacy applications using <strong>Docker</strong> and orchestrated deployments on <strong>Kubernetes (EKS)</strong>, improving application portability and resource utilisation by <strong>30%</strong>.</li>
+        <li>Deployed <strong>Prometheus, Grafana, and ELK Stack</strong> for comprehensive monitoring and observability, reducing system downtime by <strong>40%</strong> and enabling proactive incident response.</li>
+        <li>Championed cost-optimization initiative using AWS Cost Explorer and Reserved Instances, reducing cloud expenses by <strong>25%</strong> (~€45K annually) while mentoring team of 3 junior engineers.</li>
+    </ul>
+    
+    <div class="job-title">Wells Fargo EGS, Hyderabad, India | 07/2017 – 07/2019</div>
+    <div class="job-company">Operations Engineer</div>
+    <ul>
+        <li>Managed <strong>200+ Linux servers</strong> (RHEL, CentOS) across development, staging, and production environments for global financial services company, maintaining <strong>99.9% uptime</strong>.</li>
+        <li>Coordinated incident management and root cause analysis for P1/P2 production issues, reducing mean time to resolution (MTTR) by <strong>50%</strong> through systematic troubleshooting and runbook automation.</li>
+        <li>Authored Bash/Shell scripts to automate routine server maintenance tasks including log rotation, disk cleanup, and health checks, reducing manual effort by <strong>60%</strong>.</li>
+        <li>Configured monitoring dashboards using Nagios and Splunk, enabling proactive alerting and reducing unplanned outages by <strong>35%</strong> while supporting cloud migration assessments.</li>
+        <li>Collaborated with development and QA teams in Agile/Scrum ceremonies, implementing server hardening and patch management processes in compliance with enterprise security policies.</li>
+    </ul>
+    
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+        <div class="skill-item"><strong>Cloud Platforms:</strong> AWS, Azure, GCP</div>
+        <div class="skill-item"><strong>IaC & Automation:</strong> Terraform, CloudFormation, Ansible, AWS Step Functions, EventBridge</div>
+        <div class="skill-item"><strong>CI/CD Tools:</strong> Jenkins, GitHub Actions, AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline</div>
+        <div class="skill-item"><strong>Containerization:</strong> Docker, Kubernetes, AWS EKS, AWS ECS Fargate</div>
+        <div class="skill-item"><strong>Monitoring:</strong> ELK Stack, AWS CloudWatch, Prometheus, Grafana, Azure Monitor</div>
+        <div class="skill-item"><strong>FinOps:</strong> AWS Cost Explorer, CUR 2.0, Amazon QuickSight, AWS Budgets, Savings Plans</div>
+        <div class="skill-item"><strong>Programming:</strong> Python, Bash/Shell, HCL</div>
+        <div class="skill-item"><strong>Security:</strong> AWS Security Hub, AWS Config, IAM, GDPR, SOC 2, ISO 27001</div>
+    </div>
+    
+    <div class="section-title">Education</div>
+    <ul>
+        <li><strong>Master of Business Administration (MBA)</strong> | 2015 – 2017<br>
+        Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada, India</li>
+    </ul>
+    
+    <div class="section-title">Certifications</div>
+    <ul>
+        <li><strong>AWS Certified Solutions Architect – Associate</strong> | Amazon Web Services | Valid through 2026</li>
+        <li><strong>Terraform Associate Certification</strong> | HashiCorp | In Progress (Expected Q4 2025)</li>
+    </ul>
+    
+    <div class="section-title">Languages</div>
+    <ul>
+        <li><strong>English:</strong> C1 (Professional Working Proficiency)</li>
+        <li><strong>Hindi:</strong> Native Speaker</li>
+        <li><strong>Telugu:</strong> Native Speaker</li>
+    </ul>
+    
+    <div class="section-title">Additional Information</div>
+    <ul>
+        <li><strong>Work Authorization:</strong> EU Blue Card eligible (Latvia, Germany, Netherlands, Estonia). Canada Express Entry eligible. Open to employer-sponsored visa.</li>
+        <li><strong>Availability:</strong> Available within notice period. Open to remote, hybrid, or on-site roles.</li>
+        <li><strong>International Experience:</strong> Proven track record with distributed teams across Singapore, USA, and India in multicultural, cross-timezone environments.</li>
+    </ul>
+    
+    <div style="margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 11px; color: #666; text-align: center;">
+        I hereby consent to the processing of my personal data for the purposes of recruitment, in accordance with Regulation (EU) 2016/679 (GDPR) and the Personal Information Protection and Electronic Documents Act (PIPEDA) of Canada.
+    </div>
+</body>
+</html>`;
+    
+    // Create a new window with the resume content
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(resumeContent);
+    printWindow.document.close();
+    
+    // Wait for content to load, then print
+    setTimeout(() => {
+        printWindow.focus();
+        printWindow.print();
+        
+        // Show instructions to user
+        alert('📄 PDF Generation Instructions:\n\n1. In the print dialog, select "Save as PDF" or "Microsoft Print to PDF"\n2. Choose your preferred filename (suggested: Pruthvi_Raj_Darapu_Resume.pdf)\n3. Click "Save" to download your professional PDF resume\n\nThis ensures the best formatting and includes all your achievements!');
+    }, 1000);
+}
+</script>
 </body>
 </html>
