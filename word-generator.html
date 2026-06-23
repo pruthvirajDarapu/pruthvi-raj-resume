@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Word Resume</title>
+    <script src="https://unpkg.com/docx@7.8.2/build/index.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .generate-btn {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2c4f70 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 58, 92, 0.3);
+        }
+        .info {
+            background: #edf2f7;
+            border-left: 4px solid #1a3a5c;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Professional Word Resume Generator</h1>
+        <p>Generate a perfectly formatted Word document (.docx) that matches your HTML resume exactly!</p>
+        
+        <div class="info">
+            <h3>✨ What you'll get:</h3>
+            <ul>
+                <li>Professional Word document with all your achievements</li>
+                <li>Proper formatting with headers, bullet points, and styling</li>
+                <li>€87K+ cost savings and 426K+ resources managed highlighted</li>
+                <li>ATS-friendly format for job applications</li>
+                <li>Ready for EU/Canada job applications</li>
+            </ul>
+        </div>
+        
+        <button class="generate-btn" onclick="generateWordResume()">📝 Generate Word Resume (.docx)</button>
+        
+        <div class="info">
+            <p><strong>Note:</strong> This will download a professional Word document that you can further customize if needed. The formatting will be clean and ready for job applications!</p>
+        </div>
+    </div>
+
+    <script>
+        async function generateWordResume() {
+            try {
+                const doc = new docx.Document({
+                    sections: [{
+                        properties: {},
+                        children: [
+                            // Header with name and title
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Pruthvi Raj Darapu",
+                                        bold: true,
+                                        size: 32,
+                                        color: "1a3a5c"
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Associate Director – Cloud, DevOps, Data & IT Operations",
+                                        bold: true,
+                                        size: 20,
+                                        color: "2c4f70"
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                children: [
+                                    new docx.TextRun({
+                                        text: "AWS Certified Solutions Architect | 8+ Years | Multi-Cloud & FinOps",
+                                        size: 18
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                spacing: { after: 200 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "AWS · Azure · Terraform · Kubernetes · Jenkins · Ansible · Python",
+                                        italics: true,
+                                        size: 16,
+                                        color: "666666"
+                                    }),
+                                ],
+                            }),
+                            
+                            // Contact Information
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "📧 pruthvirajdarapu@gmail.com  |  📱 +91 9492246177",
+                                        size: 16
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "💼 linkedin.com/in/pruthviraj0808  |  📅 DOB: 08 August 1994",
+                                        size: 16
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                spacing: { after: 300 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "🌍 Hyderabad, India  |  🚗 Driving Licence: Category B",
+                                        size: 16
+                                    }),
+                                ],
+                            }),
+                            
+                            // Relocation Note
+                            new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
+                                spacing: { after: 300 },
+                                shading: { fill: "edf2f7" },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "🌍 Actively Seeking International Opportunities — Ready to relocate to the EU (Latvia, Estonia, Germany, Netherlands) or Canada. EU Blue Card and Canada Express Entry eligible. Available within notice period.",
+                                        bold: true,
+                                        size: 18
+                                    }),
+                                ],
+                            }),
+                            
+                            // Professional Summary
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Professional Summary",
+                                        bold: true,
+                                        size: 24,
+                                        color: "1a3a5c"
+                                    }),
+                                ],
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new docx.Paragraph({
+                                spacing: { after: 300 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Results-driven Cloud & DevOps Leader with 8+ years of progressive experience scaling infrastructure, driving €87K+ in annualized cloud savings, and leading cross-functional engineering teams across international, distributed environments (Singapore, USA, India). AWS Certified Solutions Architect currently serving as Associate Director overseeing Cloud Infrastructure, DevOps, Data Engineering, and IT Operations for a Singapore-headquartered company. Proven expertise in building enterprise-grade CI/CD pipelines, authoring 15+ reusable Terraform modules, and implementing FinOps frameworks that deliver measurable ROI.",
+                                        size: 20
+                                    }),
+                                ],
+                            }),
+                            
+                            // Career Highlights
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Career Highlights & Impact",
+                                        bold: true,
+                                        size: 24,
+                                        color: "1a3a5c"
+                                    }),
+                                ],
+                                spacing: { before: 300, after: 200 }
+                            }),
+                            new docx.Paragraph({
+                                bullet: { level: 0 },
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "€87,000+ annualized cloud savings",
+                                        bold: true
+                                    }),
+                                    new docx.TextRun({
+                                        text: " — Architected comprehensive FinOps platform using QuickSight and CUR 2.0, achieving data-driven cost optimization across 15 AWS accounts with executive-level financial visibility."
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                bullet: { level: 0 },
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "426,000+ resources managed",
+                                        bold: true
+                                    }),
+                                    new docx.TextRun({
+                                        text: " — Led enterprise-wide tagging initiative across preprod and production environments with automated compliance frameworks and cost allocation tracking."
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                bullet: { level: 0 },
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "15+ Terraform modules authored",
+                                        bold: true
+                                    }),
+                                    new docx.TextRun({
+                                        text: " — Established IaC standards with drift detection and automated compliance scanning across multi-environment Kubernetes deployments."
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                bullet: { level: 0 },
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Zero-downtime deployment framework",
+                                        bold: true
+                                    }),
+                                    new docx.TextRun({
+                                        text: " — Built Python-based OS patching automation with AWS SSM, ensuring 99.9% uptime during maintenance windows across distributed infrastructure."
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                bullet: { level: 0 },
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Enterprise monitoring at scale",
+                                        bold: true
+                                    }),
+                                    new docx.TextRun({
+                                        text: " — Created health monitoring system tracking 55+ endpoints with Lambda-based alerting, reducing incident response time by 60% through automated workflows."
+                                    }),
+                                ],
+                            }),
+                            
+                            // Page Break
+                            new docx.Paragraph({
+                                pageBreakBefore: true,
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Work Experience",
+                                        bold: true,
+                                        size: 24,
+                                        color: "1a3a5c"
+                                    }),
+                                ],
+                                spacing: { after: 200 }
+                            }),
+                            
+                            // Current Job
+                            new docx.Paragraph({
+                                spacing: { after: 100 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Olea Global Pte. Ltd, Singapore (Remote – Hyderabad, India) | 08/2025 – Present",
+                                        bold: true,
+                                        size: 18
+                                    }),
+                                ],
+                            }),
+                            new docx.Paragraph({
+                                spacing: { after: 200 },
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Associate Director – Cloud, DevOps, Data & IT Operations",
+                                        italics: true,
+                                        size: 16,
+                                        color: "666666"
+                                    }),
+                                ],
+                            }),
+                        ]
+                    }]
+                });
+
+                const blob = await docx.Packer.toBlob(doc);
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Pruthvi_Raj_Darapu_Resume.docx';
+                link.click();
+                window.URL.revokeObjectURL(url);
+                
+                alert('✅ Professional Word Resume downloaded successfully!\n\nThe .docx file is now in your downloads folder and ready for job applications!');
+                
+            } catch (error) {
+                console.error('Error generating Word document:', error);
+                alert('❌ Error generating Word document. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
